@@ -160,7 +160,7 @@ const GalleryPage = () => {
             ]
             const shape = shapeVariants[idx % shapeVariants.length]
             return (
-              <div key={`${item.id}-${idx}`} className="mx-3 mt-4 flex-shrink-0" aria-hidden={idx >= gallery.length}>
+              <div key={`${item.id}-${idx}`} className="mx-3 mt-4 shrink-0" aria-hidden={idx >= gallery.length}>
                 <div className={``}>
                   <img src={item.src} alt={item.title} className={`w-full h-40 object-cover`} />
                 </div>
@@ -186,7 +186,7 @@ const GalleryPage = () => {
             ]
             const shape = shapeVariants[idx % shapeVariants.length]
             return (
-              <div key={`${item.id}-${idx}`} className=" mx-3 flex-shrink-0" aria-hidden={idx >= gallery2.length}>
+              <div key={`${item.id}-${idx}`} className=" mx-3 shrink-0" aria-hidden={idx >= gallery2.length}>
                 <div className={''}>
                   <img src={item.src} alt={item.title} className={`w-full h-40 object-cover`} />
                 </div>
