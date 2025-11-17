@@ -12,6 +12,9 @@ import MerchPage from "./pages/MerchPage";
 import TeamPage from "./pages/TeamPage";
 import RegisterPage from "./pages/RegisterPage";
 import { ToastContainer } from "react-toastify";
+import AddEventPage from "./pages/EventPage/AddEventPage";
+import { motion } from "framer-motion";
+import textBackdropSrc from "./assets/text-backdrop.png";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -33,11 +36,25 @@ function App() {
     sessionStorage.setItem("animationPlayed", "true");
   };
 
+  const noBackgroundRoutes = ["/"];
+
+  const shouldShowBackground = !noBackgroundRoutes.includes(location.pathname);
+
   return (
     <div className="App">
       <ToastContainer position="bottom-right"/>
       <CustomCursor />
-      {/* <Navbar show={isHomePage ? showNavbar : true} /> */}
+      
+      {shouldShowBackground && (
+        <>
+          <div className="shared-background" />
+          <div
+            className="shared-text-backdrop"
+            style={{ backgroundImage: `url(${textBackdropSrc})` }}
+          />
+        </>
+      )}
+      <div className="content-root">
       <Routes>
         <Route 
           path="/" 
@@ -54,7 +71,9 @@ function App() {
         <Route path="/merchandise" element={<MerchPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/add-event" element={<AddEventPage />} />
       </Routes>
+      </div>
     </div>
   );
 }

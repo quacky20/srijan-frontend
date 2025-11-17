@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import EventCard from "./EventCard";
+import EventModal from "./EventModal";
 
 import ART from "./Images/ART.jpg";
 import CINEMA from "./Images/CINEMA.jpg";
@@ -62,43 +63,11 @@ export default function Display({ category }) {
         ))}
       </div>
 
-      {/*Popup*/}
-      {selectedEvent && (
-        <motion.div
-          key="modal"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-200"
-          onClick={() => setSelectedEvent(null)}
-        >
-          <motion.div
-            initial={{ scale: 0.7, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.7, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="bg-[#802C00] text-[#FED000] rounded-xl p-6 shadow-2xl border border-[#FED000] w-[400px] sm:w-[450px]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedEvent.image}
-              alt={selectedEvent.name}
-              className="w-full h-64 object-cover rounded-md"
-            />
-
-            <h2 className="text-center text-3xl font-['Cinzel_Decorative'] mt-4 font-bold">
-              {selectedEvent.name}
-            </h2>
-
-            <button
-              onClick={() => setSelectedEvent(null)}
-              className="mt-4 w-full border border-[#FED000] text-[#FED000] py-2 rounded-lg hover:bg-[#FED000] hover:text-black transition"
-            >
-              Close
-            </button>
-          </motion.div>
-        </motion.div>
-      )}
+      <EventModal
+        isOpen={!!selectedEvent}
+        onClose={() => setSelectedEvent(null)}
+        eventData={selectedEvent}
+      />
     </>
   );
 }

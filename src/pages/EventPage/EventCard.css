@@ -1,0 +1,420 @@
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.event-card-wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
+  margin: 0 auto;
+}
+
+.event-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.event-card-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-front-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 6, 30, 0.9) 0%, rgba(48, 18, 88, 0.5) 50%, transparent 100%);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  z-index: 2;
+}
+
+.category-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(254, 208, 0, 0.9);
+  border: 2px solid rgba(166, 83, 156, 0.6);
+}
+
+.category-badge span {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--primary-starless, #08061E);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-name {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--gold-text, #FED000);
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.3;
+}
+
+.card-hint {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.875rem;
+  color: var(--accent-lilac-dust, #E3CDEC);
+  margin-top: 8px;
+  opacity: 0.9;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.decorative-corners {
+  position: absolute;
+  inset: 16px;
+  pointer-events: none;
+}
+
+.decorative-corners .corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--gold-text, #FED000);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.event-card-inner:hover .corner {
+  opacity: 1;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.card-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-text, #FED000);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(8, 6, 30, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.card-icon span {
+  color: var(--gold-text, #FED000);
+  font-size: 1.25rem;
+}
+
+.event-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #301258 0%, #5C2A9A 50%, #301258 100%);
+}
+
+.card-back-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.back-decorative-circles {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.back-decorative-circles .circle {
+  position: absolute;
+  border: 4px solid var(--gold-text, #FED000);
+  border-radius: 50%;
+}
+
+.back-decorative-circles .circle.top-right {
+  width: 128px;
+  height: 128px;
+  top: -64px;
+  right: -64px;
+}
+
+.back-decorative-circles .circle.bottom-left {
+  width: 96px;
+  height: 96px;
+  bottom: -48px;
+  left: -48px;
+}
+
+.back-header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.back-category-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(254, 208, 0, 0.2);
+  border: 2px solid rgba(254, 208, 0, 0.6);
+  margin-bottom: 8px;
+  max-width: 90%;
+}
+
+.back-category-badge span {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--gold-text, #FED000);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.back-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--gold-text, #FED000);
+  margin: 0;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.back-divider {
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--gold-text, #FED000), transparent);
+  margin: 10px auto 0;
+}
+
+.back-content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-right: 4px;
+}
+
+.back-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.back-content::-webkit-scrollbar-track {
+  background: rgba(8, 6, 30, 0.3);
+  border-radius: 10px;
+}
+
+.back-content::-webkit-scrollbar-thumb {
+  background: var(--gold-text, #FED000);
+  border-radius: 10px;
+}
+
+.back-description {
+  background: rgba(8, 6, 30, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid rgba(254, 208, 0, 0.3);
+}
+
+.back-description p {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.7rem;
+  color: var(--accent-lilac-dust, #E3CDEC);
+  line-height: 1.5;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.back-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.back-detail-item {
+  background: rgba(8, 6, 30, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(166, 83, 156, 0.3);
+  overflow: hidden;
+}
+
+.back-detail-item.full {
+  grid-column: 1 / -1;
+}
+
+.detail-label {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.6rem;
+  color: rgba(227, 205, 236, 0.7);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detail-value {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--gold-text, #FED000);
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.back-details-btn {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid var(--gold-text, #FED000);
+  border-radius: 12px;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--gold-text, #FED000);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-top: auto;
+  flex-shrink: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+.back-details-btn:hover {
+  color: var(--primary-starless, #08061E);
+}
+
+@media (max-width: 768px) {
+  .event-card-wrapper {
+    height: 400px;
+  }
+
+  .card-name {
+    font-size: 1.25rem;
+  }
+
+  .back-title {
+    font-size: 1.15rem;
+  }
+
+  .card-back-inner {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-card-wrapper {
+    height: 350px;
+  }
+
+  .card-name {
+    font-size: 1.1rem;
+  }
+
+  .back-title {
+    font-size: 1rem;
+  }
+
+  .card-back-inner {
+    padding: 16px;
+  }
+
+  .back-details-btn {
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+}

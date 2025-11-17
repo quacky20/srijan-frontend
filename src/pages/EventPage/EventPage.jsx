@@ -10,7 +10,7 @@ import LITERACY from "./EventIcons/LITERACY.png";
 import MUSIC from "./EventIcons/MUSIC.png";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import textBackdropSrc from "../../assets/text-backdrop.png";
+import { useNavigate } from "react-router-dom";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import "./EventPage.css";
 
@@ -26,52 +26,13 @@ const categories = [
   { icon: COMEDY, categoryname: "COMEDY" },
 ];
 
-const orbs = [
-  { size: 250, x: "15%", y: "25%", duration: 10, delay: 0 },
-  { size: 200, x: "85%", y: "20%", duration: 12, delay: 2 },
-  { size: 220, x: "10%", y: "75%", duration: 11, delay: 1 },
-  { size: 180, x: "90%", y: "80%", duration: 9, delay: 3 },
-  { size: 240, x: "50%", y: "50%", duration: 13, delay: 1.5 },
-];
-
 export default function EventPage() {
   const [activeCategory, setActiveCategory] = useState("ALL");
+  const [isAdmin, setIsAdmin] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <div className="event-page-container">
-      <div className="event-page-background" />
-      <div
-        className="event-text-backdrop"
-        style={{ backgroundImage: `url(${textBackdropSrc})` }}
-      />
-
-      <div className="event-orbs-container">
-        {orbs.map((orb, index) => (
-          <motion.div
-            key={index}
-            className="event-orb"
-            style={{
-              width: orb.size,
-              height: orb.size,
-              left: orb.x,
-              top: orb.y,
-            }}
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.4, 0.2],
-              x: [0, Math.random() * 60 - 30, 0],
-              y: [0, Math.random() * 60 - 30, 0],
-            }}
-            transition={{
-              duration: orb.duration,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: orb.delay,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="event-page-content">
         <PageHeader 
           title="EVENTS"
@@ -81,6 +42,33 @@ export default function EventPage() {
           titleDelay={0.2}
           showStars={true}
         />
+
+        {isAdmin && (
+          <motion.button
+            className="add-event-btn"
+            onClick={() => navigate("/add-event")}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(254, 208, 0, 0.6)"
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2"
+            >
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            <span>ADD EVENT</span>
+          </motion.button>
+        )}
 
         <motion.nav
           className="event-categories-nav"
