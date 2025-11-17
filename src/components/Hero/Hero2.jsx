@@ -46,7 +46,7 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
         "https://srijan-2026.onrender.com/api/v1/user/current-user",
         { withCredentials: true }
       );
-      setUser(res.data.fullname);
+      setUser(res.data.data.fullname);
     } catch (error) {
       setUser("");
     }
