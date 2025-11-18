@@ -12,6 +12,7 @@ import MerchPage from "./pages/MerchPage";
 import TeamPage from "./pages/TeamPage";
 import RegisterPage from "./pages/RegisterPage";
 import { ToastContainer } from "react-toastify";
+import { Profile } from "./pages/Profilepage";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -54,6 +55,7 @@ function App() {
         <Route path="/merchandise" element={<MerchPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </div>
   );

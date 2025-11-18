@@ -1,0 +1,29 @@
+/* GOLDEN BLINK / STAR SHIMMER */
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 6px #fed000;
+    border-color: #fed000;
+  }
+  25% {
+    box-shadow: 0 0 12px #ffe34d, 0 0 20px #fed000;
+    border-color: #ffe34d;
+  }
+  50% {
+    box-shadow: 0 0 18px #ffea74, 0 0 28px #fed000;
+    border-color: #ffea74;
+  }
+  75% {
+    box-shadow: 0 0 12px #ffe34d, 0 0 20px #fed000;
+    border-color: #ffe34d;
+  }
+  100% {
+    box-shadow: 0 0 6px #fed000;
+    border-color: #fed000;
+  }
+}
+
+/* Add a class for animated cards */
+.glow-card {
+  animation: borderGlow 3s infinite ease-in-out;
+  font-family: 'Cinzel Decorative',cursive;
+}
