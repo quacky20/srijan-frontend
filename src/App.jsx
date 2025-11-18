@@ -72,11 +72,8 @@ function App() {
         <Route path="/merchandise" element={<MerchPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/register" element={<RegisterPage />} />
-<<<<<<< HEAD
         <Route path="/profile" element={<Profile/>} />
-=======
         <Route path="/add-event" element={<AddEventPage />} />
->>>>>>> origin/main
       </Routes>
       </div>
     </div>

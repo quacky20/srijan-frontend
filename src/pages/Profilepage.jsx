@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import "./Profilepage.css";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 export function Profile() {
   const [user, setUser] = useState("");
@@ -45,7 +46,17 @@ export function Profile() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex  justify-center items-center gap-8 px-4">
+    <div >
+            <PageHeader
+        title="YOUR PROFILE"
+        
+        showBackButton={true}
+        backPath="/"
+        titleDelay={0.2}
+        showStars={true}
+      />
+      <div className="w-full  flex  justify-center items-center gap-8 px-4">
+        
 
       {/* PROFILE CARD */}
       <div className="glow-card w-full max-w-md p-10 rounded-2xl border-4 border-[#FED000] font-['Cinzel Decorative'] bg-black/10 flex flex-col gap-4">
@@ -91,5 +102,7 @@ export function Profile() {
       </div>
 
     </div>
+    </div>
+    
   );
 }
