@@ -38,7 +38,7 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
   );
 
   // USER DATA
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(false);
 
   async function getUser() {
     try {
@@ -46,24 +46,13 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
         "https://srijan-2026.onrender.com/api/v1/user/current-user",
         { withCredentials: true }
       );
-      setUser(res.data.data.fullname);
+      setUser(true);
     } catch (error) {
-      setUser("");
+      setUser(false);
+   
     }
   }
 
-  async function logout() {
-    try {
-      await axios.get(
-        "https://srijan-2026.onrender.com/api/v1/user/logout",
-        { withCredentials: true }
-      );
-      setUser("");
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   useEffect(() => {
     getUser();
@@ -231,16 +220,21 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
                 transition={{ delay: skipAnimation ? 0 : 1.2 }}
               >
                 {user ? (
-                  <>
-                    <span className="nav-link text-2xl font-bold">{user}</span>
-
-                    <button
-                      onClick={logout}
-                      className="nav-link text-red-400 font-bold"
+                 <NavLink to="/profile" className="nav-link">
+                    <motion.span
+                      animate={{
+                        y: hoveredIndex === navItems.length ? -8 : 0,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
+                      className="inline-block"
                     >
-                      LOGOUT
-                    </button>
-                  </>
+                     PROFILE
+                    </motion.span>
+                  </NavLink>
                 ) : (
                   <NavLink to="/register" className="nav-link">
                     <motion.span
@@ -342,15 +336,21 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
                     {/* MOBILE USER / REGISTER */}
                     <div className="mt-6">
                       {user ? (
-                        <button
-                          onClick={() => {
-                            logout();
-                            setIsMenuOpen(false);
-                          }}
-                          className="mobile-register-btn"
-                        >
-                          <span>LOGOUT</span>
-                        </button>
+                        <NavLink to="/profile" className="nav-link">
+                    <motion.span
+                      animate={{
+                        y: hoveredIndex === navItems.length ? -8 : 0,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
+                      className="inline-block"
+                    >
+                     PROFILE
+                    </motion.span>
+                  </NavLink>
                       ) : (
                         <NavLink
                           to="/register"
