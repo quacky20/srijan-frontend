@@ -25,7 +25,7 @@ export default function Display({ category }) {
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch events");
         const data = await response.json();
-        setEvents(data);// events will be set in events,use it in frontend as needed
+        setEvents(data.data);// events will be set in events,use it in frontend as needed
       } catch(err){
         console.error("Error fetching events:", err);
       }
