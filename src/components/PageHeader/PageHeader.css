@@ -154,15 +154,18 @@
 @media (max-width: 480px) {
     .page-title {
         font-size: 2rem;
+    
     }
-
     .page-title-star {
         font-size: 1.2rem;
         margin: 0 8px;
+      
     }
 
     .page-subtitle {
         font-size: 0.8rem;
+          position: absolute;
+        top: 40px;
     }
 
     .page-back-button svg {
@@ -170,3 +173,5 @@
         height: 16px;
     }
 }
+
+
