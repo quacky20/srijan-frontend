@@ -33,19 +33,23 @@
 import React from 'react'
 import Hero2 from '../components/Hero/Hero2'
 import GalleryGrid from '../components/GalleryGrid/GalleryGrid'
+import Footer from '../components/footer'
 
 function HomePage({ onAnimationComplete, skipAnimation }) {
   return (
-    <div>
+    <div className='relative w-full'>
       {/* Hero Section */}
-      <Hero2 
-        onAnimationComplete={onAnimationComplete}
-        skipAnimation={skipAnimation}
-      />
+      <div className='sticky top-0 h-screen w-full z-10'>
+        <Hero2
+          onAnimationComplete={onAnimationComplete}
+          skipAnimation={skipAnimation}
+        />
+      </div>
       
       {/* Gallery Section */}
-      <div className="gallery-section">
+      <div className="relative z-20 mt-[100vh]">
         <GalleryGrid />
+        <Footer/>
       </div>
     </div>
   )
