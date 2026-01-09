@@ -2,6 +2,9 @@ import PageHeader from "../components/PageHeader/PageHeader";
 import { motion } from "framer-motion";
 import MerchCard from "../components/MerchCard";
 import TShirtBack from "../assets/TShirt_Back.jpeg"
+import leftImg from "../assets/left.svg";
+import rightImg from "../assets/right.svg";
+
 
 function MerchPage() {
   const demoMerchs = [
@@ -42,8 +45,15 @@ function MerchPage() {
     // },
   ];
 
+ 
+
   return (
     <div className="pb-30">
+
+       
+      
+
+
       <PageHeader
         title="MERCHANDISE"
         subtitle="Explore the vibrant spectrum of cultural celebrations"
