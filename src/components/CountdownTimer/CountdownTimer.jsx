@@ -37,12 +37,17 @@ const CountdownTimer = ({ targetDate }) => {
 
   return (
     <div className="countdown-container">
-      {Object.keys(timeLeft).map((interval) => (
+      {/* {Object.keys(timeLeft).map((interval) => (
         <div className="time-box" key={interval}>
           <div className="time-value">{addLeadingZero(timeLeft[interval])}</div>
           <div className="time-label">{interval}</div>
         </div>
-      ))}
+      ))} */}
+      <div className="srijan-box py-5 w-full shadow-[#FED000]/30 shadow-lg backdrop-blur-lg">
+        <div className="time-value animate-pulse">
+          Srijan is ON!
+        </div>
+      </div>
     </div>
   );
 };

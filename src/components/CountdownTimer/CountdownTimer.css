@@ -24,6 +24,17 @@
   padding: 5px 0; 
 }
 
+.srijan-box {
+  border: 1.5px solid #F5B800; 
+  border-radius: 8px; 
+  
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .time-value {
   font-family: 'Pirata One', cursive;
   font-size: 40px; 

@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
-import axiosInstance from "../utils/axiosInstance";
 import "./Profilepage.css";
 import PageHeader from "../components/PageHeader/PageHeader";
 import { toast } from "react-toastify";
 import QRCode from "qrcode";
 
 export default function QR() {
-    const [user, setUser] = useState("");
-    const [email, setEmail] = useState("");
-    const [mobilenumber, setMobileNumber] = useState("");
     const [passid, setpassid] = useState("");
     const [showQRModal, setShowQRModal] = useState(false);
     const [glamfestEmail, setGlamfestEmail] = useState("");
     const [isGenerating, setIsGenerating] = useState(false);
-
-    const navigate = useNavigate();
 
     function encode(str) {
         let shifted = "";
