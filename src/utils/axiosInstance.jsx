@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://srijan-2026.onrender.com/api/v1',
+  baseURL: import.meta.env.VITE_API_URL + '/api/v1',
   withCredentials: true,
 });
 
@@ -15,7 +15,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         await axios.get(
-          'https://srijan-2026.onrender.com/api/v1/user/refresh-token',
+          import.meta.env.VITE_API_URL + '/api/v1/user/refresh-token',
           { withCredentials: true }
         );
 

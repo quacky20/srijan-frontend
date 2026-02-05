@@ -57,7 +57,7 @@ const AddEventPage = () => {
         e.preventDefault();
         try {
             const response = await fetch(
-                "https://srijan-2026.onrender.com/api/v1/events/create",
+                import.meta.env.VITE_API_URL + "/api/v1/events/create",
                 {
                     method: "POST",
                     headers: {

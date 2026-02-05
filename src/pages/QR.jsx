@@ -28,37 +28,78 @@ export default function QR() {
         setIsGenerating(true);
 
         try {
-            // Encode the email
             const encodedEmail = encode(glamfestEmail);
 
-            // Generate QR code as data URL
+            // Generate QR
             const qrDataUrl = await QRCode.toDataURL(encodedEmail, {
-                width: 500,
-                margin: 2,
-                color: {
-                    dark: "#000000",
-                    light: "#FFFFFF",
-                },
+                width: 300,
+                margin: 1,
             });
 
-            // Create a download link
+            // Create canvas
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            const bgImage = new Image();
+            const qrImage = new Image();
+
+            bgImage.crossOrigin = "anonymous";
+            qrImage.crossOrigin = "anonymous";
+
+            bgImage.src =
+                "https://res.cloudinary.com/djpqjisxv/image/upload/v1770193528/WhatsApp_Image_2026-02-04_at_1.51.06_PM_rbrz91.jpg";
+            qrImage.src = qrDataUrl;
+
+            await Promise.all([
+                new Promise((resolve, reject) => {
+                    bgImage.onload = resolve;
+                    bgImage.onerror = reject;
+                }),
+                new Promise((resolve, reject) => {
+                    qrImage.onload = resolve;
+                    qrImage.onerror = reject;
+                }),
+            ]);
+
+            // Set canvas size
+            canvas.width = bgImage.width;
+            canvas.height = bgImage.height;
+
+            // Draw background
+            ctx.drawImage(bgImage, 0, 0);
+
+            // QR position & size
+            const qrSize = 600;
+            const qrX = canvas.width - qrSize - 130;
+            const qrY = canvas.height - qrSize - 30;
+
+            ctx.drawImage(qrImage, qrX, qrY, qrSize, qrSize);
+
+
+            const safeEmail = glamfestEmail
+                .replace(/[^a-z0-9]/gi, "_")
+                .toLowerCase();
+
+            const finalImage = canvas.toDataURL("image/png");
+
             const link = document.createElement("a");
-            link.href = qrDataUrl;
-            link.download = `glamfest-qr-${glamfestEmail}.png`;
+            link.href = finalImage;
+            link.download = `glamfest-pass-${safeEmail}.png`;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
 
-            toast.success("QR Code generated and downloaded successfully!");
+            toast.success("QR Pass downloaded successfully!");
             setShowQRModal(false);
             setGlamfestEmail("");
-        } catch (error) {
-            console.error("Error generating QR code:", error);
-            toast.error("Failed to generate QR code. Please try again.");
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to generate QR");
         } finally {
             setIsGenerating(false);
         }
     }
+
 
     return (
         <div className="w-full min-h-screen">

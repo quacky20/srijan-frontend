@@ -46,7 +46,7 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
   async function getUser() {
     try {
       const res = await axios.get(
-        "https://srijan-2026.onrender.com/api/v1/user/current-user",
+        import.meta.env.VITE_API_URL + "/api/v1/user/current-user",
         { withCredentials: true }
       );
       setUser(res.data.data.fullname);
@@ -54,6 +54,7 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
       setUser("");
     }
   }
+
 
   // async function logout() {
   //   try {
@@ -450,7 +451,7 @@ const Hero2 = ({ onAnimationComplete, skipAnimation: skipAnimationProp }) => {
 
             >
               <CountdownTimer targetDate={targetDate} />
-              
+
               {/* QR BUTTON */}
               <motion.div
                 className="flex justify-center mt-6"
