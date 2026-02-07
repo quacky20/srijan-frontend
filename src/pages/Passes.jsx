@@ -267,7 +267,7 @@ function PassCard({ name, level, days, price, features, image, exclusions }) {
           <button
             className="w-full sm:w-auto bg-[#FFD400] text-black font-bold py-2.5 px-6 rounded-full border-none cursor-pointer transition-all hover:translate-y-[-3px] hover:bg-[#FFE55C]"
             onClick={() => {
-              window.open('https://forms.gle/oU9M8eZvpqzhB8a8A')
+              window.open('https://forms.gle/8Vr25rFSP7KFRqrK9')
             }}
           >
             BUY NOW
@@ -297,20 +297,20 @@ function PassCard({ name, level, days, price, features, image, exclusions }) {
 
 
 function Passes() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("true");
 
-  async function getUser() {
-    try {
-      const res = await axiosInstance.get('user/current-user')
-      setUser(res.data.data.fullname);
-    } catch {
-      setUser("");
-    }
-  }
+  // async function getUser() {
+  //   try {
+  //     const res = await axiosInstance.get('user/current-user')
+  //     setUser(res.data.data.fullname);
+  //   } catch {
+  //     setUser("");
+  //   }
+  // }
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
 
   return (
     <div className="min-h-screen w-full py-10 px-4">
